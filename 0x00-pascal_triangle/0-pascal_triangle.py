@@ -26,5 +26,9 @@ def pascal_triangle(n):
 
     return triangle
 
-# Print the Pascal's triangle up to n = 10
+# Print the Pascal's triangle up to n = 10. n = 0, n = 1, n = 5, n = 100
+print(pascal_triangle(5))
+print(pascal_triangle(1))
+print(pascal_triangle(0))
 print(pascal_triangle(10))
+print(pascal_triangle(100))
