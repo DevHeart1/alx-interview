@@ -1,6 +1,6 @@
 # Pascal Triangle
 
-This repository contains a Python function `pascal_triangle(n)` that efficiently generates Pascal's Triangle up to a specified row index `n`. The code adheres to best practices for readability, maintainability, and correctness.
+This repository contains a Python function `pascal_triangle(n)` that efficiently generates Pascal's Triangle up to a specified row index `n`. The code adheres to best practices for readability, maintainability, and correctness
 
 **Features:**
 
