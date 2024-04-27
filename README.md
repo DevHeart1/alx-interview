@@ -15,7 +15,7 @@ This repository contains a Python function `pascal_triangle(n)` that efficiently
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your-username/alx-interview.git
+   git clone https://github.com/DevHeart1/alx-interview.git
    ```
 
 2. **Import the function:**
