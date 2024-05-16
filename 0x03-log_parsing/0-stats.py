@@ -1,51 +1,48 @@
 #!/usr/bin/python3
 """
-Task 0. Log parsing
-
-A script that reads stdin line by line and computes metrics.
+module contains a script that reads stdin line by line and computes metrics
 """
-
 import sys
 
 
-def printStats(file_size, status):
-    """printStats
+status_codes = {
+    "200": 0,
+    "301": 0,
+    "400": 0,
+    "401": 0,
+    "403": 0,
+    "404": 0,
+    "405": 0,
+    "500": 0
+}
 
-    This function takes the total file size and the
-    statues that were called and prints them.
+file_size = 0
 
-    Arguments:
-        file_size (int): The total file size to be printed.
-        status (dict{int, int}): A dictionary of the statues that were called.
-    """
+
+def print_metrics():
+    """prints of the logs"""
     print("File size: {}".format(file_size))
-    for key, value in sorted(status.items()):
-        if value != 0:
-            print("{}: {}".format(key, value))
+    for status in sorted(status_codes.keys()):
+        if status_codes[status]:
+            print("{}: {}".format(status, status_codes[status]))
 
 
-total_file_size = 0
-count = 0
-possible_status = {200: 0, 301: 0, 400: 0, 401: 0,
-                   403: 0, 404: 0, 405: 0, 500: 0}
-try:
-    for line in sys.stdin:
-        args = line.split()
-
-        status_code = int(args[-2])
-        file_size = int(args[-1])
-
-        if status_code in possible_status:
-            possible_status[status_code] += 1
-
-        total_file_size += file_size
-        count += 1
-
-        if count == 10:
-            printStats(total_file_size, possible_status)
-            count = 0
-    printStats(total_file_size, possible_status)
-except KeyboardInterrupt:
-    raise
-finally:
-    printStats(total_file_size, possible_status)
+if __name__ == "__main__":
+    count = 0
+    try:
+        for line in sys.stdin:
+            try:
+                elems = line.split()
+                file_size += int(elems[-1])
+                if elems[-2] in status_codes:
+                    status_codes[elems[-2]] += 1
+            except Exception:
+                pass
+            if count == 9:
+                print_metrics()
+                count = -1
+            count += 1
+    except KeyboardInterrupt:
+        print_metrics()
+        raise
+    print_metrics()
