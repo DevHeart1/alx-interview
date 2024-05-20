@@ -1,9 +1,8 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """
 Script that reads stdin line by line and computes metrics
 """
 import sys
-
 
 def main():
     """
@@ -48,7 +47,6 @@ def main():
     except KeyboardInterrupt:
         print_statistics()
         raise
-
 
 if __name__ == "__main__":
     main()
