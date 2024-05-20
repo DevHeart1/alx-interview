@@ -4,6 +4,7 @@ Script that reads stdin line by line and computes metrics
 """
 import sys
 
+
 def main():
     """
     Main function
@@ -47,6 +48,7 @@ def main():
     except KeyboardInterrupt:
         print_statistics()
         raise
+
 
 if __name__ == "__main__":
     main()
