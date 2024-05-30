@@ -33,6 +33,7 @@ def nQueens(n, i=0, a=[], b=[], c=[]):
     else:
         yield a
 
+
 for solution in nQueens(n):
     answer = [[col, row] for col, row in enumerate(solution)]
     print(answer)
